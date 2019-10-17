@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"flag"
 	"fmt"
 	"io"
@@ -53,12 +54,13 @@ func execute() {
 
 	time.Sleep(2 * time.Second)
 
-	mwriter := io.MultiWriter(os.Stdout)
+	var stdBuffer bytes.Buffer
+	mwriter := io.MultiWriter(os.Stdout, &stdBuffer)
 	outPush := exec.Command(executeWith, fmt.Sprintf("git push origin \"%s\"", branchName))
 	outPush.Stderr = mwriter
 	outPush.Stdout = mwriter
 	err = outPush.Run()
-	fmt.Println(outPush.Stderr)
+	fmt.Println(stdBuffer.String())
 
 	if err != nil {
 		fmt.Printf("%s", err)
