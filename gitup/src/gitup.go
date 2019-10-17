@@ -39,13 +39,13 @@ func execute() {
 	outputStatus := string(outStatus[:])
 	fmt.Println(outputStatus)
 
-	time.Sleep(3 * time.Second)
+	time.Sleep(2 * time.Second)
 
 	outAdd, err := exec.Command(executeWith, "git add .").Output()
 	outputAdd := string(outAdd[:])
 	fmt.Println(outputAdd)
 
-	time.Sleep(5 * time.Second)
+	time.Sleep(2 * time.Second)
 
 	outCommit, err := exec.Command(executeWith, fmt.Sprintf("git commit -am \"%s\"", commitMessage)).Output()
 	outputCommit := string(outCommit[:])

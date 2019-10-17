@@ -1,7 +1,7 @@
 ## Go script to automate repetitive Git commands
 
 Please feel free to download and use the script if you find it helpful (or get the code to build it for your env).
-Add it to the PATH and run it in the CLI in your repo folder.
+Add it to the PATH, run it in the CLI in your repo folder and just give it a few seconds.
 
 ### Folder structure
 
@@ -9,7 +9,8 @@ Add it to the PATH and run it in the CLI in your repo folder.
 - releases:
 
   - /release/win
-  - /release/unix&osx
+  - /release/unix
+  - /release/osx
 
 ### Usage
 
