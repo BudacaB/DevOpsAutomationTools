@@ -51,11 +51,13 @@ func execute() {
 	outputCommit := string(outCommit[:])
 	fmt.Println(outputCommit)
 
-	time.Sleep(5 * time.Second)
+	time.Sleep(2 * time.Second)
 
 	outPush, err := exec.Command(executeWith, fmt.Sprintf("git push origin \"%s\"", branchName)).Output()
 	outputPush := string(outPush[:])
 	fmt.Println(outputPush)
+
+	time.Sleep(3 * time.Second)
 
 	if err != nil {
 		fmt.Printf("%s", err)
