@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"io"
 	"os"
 	"os/exec"
 	"runtime"
@@ -53,10 +54,12 @@ func execute() {
 
 	time.Sleep(2 * time.Second)
 
-	outPush, err := exec.Command(executeWith, fmt.Sprintf("git push origin \"%s\"", branchName)).Output()
-	outputPush := string(outPush[:])
+	mwriter := io.MultiWriter(os.Stdout)
+	outPush := exec.Command(executeWith, fmt.Sprintf("git push origin \"%s\"", branchName))
+	outPush.Stderr = mwriter
+	outPush.Stdout = mwriter
 	time.Sleep(3 * time.Second)
-	fmt.Println(outputPush)
+	err = outPush.Run()
 
 	if err != nil {
 		fmt.Printf("%s", err)
