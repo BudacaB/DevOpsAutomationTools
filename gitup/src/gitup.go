@@ -57,7 +57,6 @@ func execute() {
 	var stdBuffer bytes.Buffer
 	mwriter := io.MultiWriter(os.Stdout, &stdBuffer)
 	outPush := exec.Command(executeWith, fmt.Sprintf("git push origin \"%s\"", branchName))
-	outPush.Stderr = mwriter
 	outPush.Stdout = mwriter
 	err = outPush.Run()
 	fmt.Println(stdBuffer.String())
