@@ -1,7 +1,7 @@
 ## Go script to automate repetitive Git commands
 
 Please feel free to download and use the script if you find it helpful (or get the code to build it for your env).
-You can also add it to the PATH for ease of use.
+Add it to the PATH and run it in the CLI in your repo folder.
 
 ### Folder structure
 
@@ -12,6 +12,8 @@ You can also add it to the PATH for ease of use.
   - /release/unix&osx
 
 ### Usage
+
+gitup -b "branch-name" -m "commit-message"
 
 #### Options:
 
