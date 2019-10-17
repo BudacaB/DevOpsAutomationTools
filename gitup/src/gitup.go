@@ -55,9 +55,10 @@ func execute() {
 
 	mwriter := io.MultiWriter(os.Stdout)
 	outPush := exec.Command(executeWith, fmt.Sprintf("git push origin \"%s\"", branchName))
+	outPush.Stderr = mwriter
 	outPush.Stdout = mwriter
 	err = outPush.Run()
-	fmt.Println(outPush.Stdout)
+	fmt.Println(outPush.Stderr)
 
 	if err != nil {
 		fmt.Printf("%s", err)
