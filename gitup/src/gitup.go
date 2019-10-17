@@ -40,11 +40,10 @@ func execute() {
 	outputStatus := string(outStatus[:])
 	fmt.Println(outputStatus)
 
-	time.Sleep(2 * time.Second)
+	time.Sleep(1 * time.Second)
 
-	outAdd, err := exec.Command(executeWith, "git add .").Output()
-	outputAdd := string(outAdd[:])
-	fmt.Println(outputAdd)
+	outAdd := exec.Command(executeWith, "git add .")
+	err = outAdd.Run()
 
 	time.Sleep(2 * time.Second)
 
@@ -56,10 +55,9 @@ func execute() {
 
 	mwriter := io.MultiWriter(os.Stdout)
 	outPush := exec.Command(executeWith, fmt.Sprintf("git push origin \"%s\"", branchName))
-	outPush.Stderr = mwriter
 	outPush.Stdout = mwriter
 	err = outPush.Run()
-	fmt.Println(outPush.Stdout)
+	//fmt.Println(outPush.Stdout)
 
 	if err != nil {
 		fmt.Printf("%s", err)
