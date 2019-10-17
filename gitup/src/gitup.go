@@ -58,8 +58,8 @@ func execute() {
 	outPush := exec.Command(executeWith, fmt.Sprintf("git push origin \"%s\"", branchName))
 	outPush.Stderr = mwriter
 	outPush.Stdout = mwriter
-	time.Sleep(3 * time.Second)
 	err = outPush.Run()
+	fmt.Println(outPush.Stdout)
 
 	if err != nil {
 		fmt.Printf("%s", err)
