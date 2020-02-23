@@ -10,7 +10,6 @@ Add it to the PATH, run it in the CLI in your repo folder and just give it a few
 
   - /release/win
   - /release/unix
-  - /release/osx
 
 ### Usage
 
