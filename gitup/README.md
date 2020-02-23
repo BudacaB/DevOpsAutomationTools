@@ -8,8 +8,9 @@ Add it to the PATH, run it in the CLI in your repo folder and just give it a few
 - code is in /src
 - releases:
 
-  - /release/win
   - /release/unix
+  - /release/win
+  
 
 ### Usage
 
